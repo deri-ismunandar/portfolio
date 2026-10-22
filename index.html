@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dede Eri Ismunandar, S.S. - Interactive Professional Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        },
+                        accent: {
+                            cyan: '#06b6d4',
+                            emerald: '#10b981',
+                            amber: '#f59e0b',
+                            rose: '#f43f5e'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.6);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 50%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .badge-glow {
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.25);
+        }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; color: black; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 w-full glass-card border-b border-slate-200 dark:border-slate-800 transition-all duration-300 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand Logo with Photo Avatar -->
+                <a href="#home" class="flex items-center gap-2.5 text-xl font-extrabold tracking-tight text-slate-900 dark:text-white group">
+                    <div class="w-9 h-9 rounded-xl overflow-hidden border border-brand-500/30 shadow-md group-hover:scale-105 transition-transform shrink-0 bg-slate-200 dark:bg-slate-800">
+                        <img src="https://lh3.googleusercontent.com/d/1YEx8NtbXq5yiTxDQ5GmWedljsDKTmgRp" 
+                             onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1YEx8NtbXq5yiTxDQ5GmWedljsDKTmgRp';" 
+                             alt="Dede Eri Ismunandar" 
+                             class="w-full h-full object-cover object-top">
+                    </div>
+                    <span>Dede Eri<span class="text-brand-600 dark:text-brand-400">.</span></span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+                    <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">About</a>
+                    <a href="#services" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">What I Do</a>
+                    <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Experience Matrix</a>
+                    <a href="#certifications" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Certifications</a>
+                    <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Key Projects</a>
+                    <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Tools Stack</a>
+                </div>
+
+                <!-- Theme Switcher & Actions -->
+                <div class="flex items-center gap-3">
+                    <button id="themeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none" title="Toggle Theme (Dark/Light)">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-amber-400"></i>
+                    </button>
+                    <a href="https://wa.me/6285695689472" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 rounded-xl shadow-lg shadow-brand-600/20 transition-all hover:scale-105">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Let's Talk
+                    </a>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 px-4 pt-3 pb-6 space-y-3 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md text-sm font-semibold">
+            <a href="#about" class="block py-2 hover:text-brand-600">About Profile</a>
+            <a href="#services" class="block py-2 hover:text-brand-600">What I Can Help With</a>
+            <a href="#experience" class="block py-2 hover:text-brand-600">Experience & Track Record</a>
+            <a href="#certifications" class="block py-2 hover:text-brand-600">Global Certifications</a>
+            <a href="#projects" class="block py-2 hover:text-brand-600">Academic & Media Projects</a>
+            <a href="#skills" class="block py-2 hover:text-brand-600">Tools & Skills Ecosystem</a>
+            <a href="#contact" class="block w-full text-center py-2.5 mt-2 text-xs font-bold uppercase tracking-wider text-white bg-brand-600 rounded-xl">Get In Touch</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <section id="home" class="relative pt-10 pb-16 md:pt-20 md:pb-28 overflow-hidden">
+            <!-- Decorative Glow Backgrounds -->
+            <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-20 right-10 w-80 h-80 bg-accent-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Hero Narrative Column -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 dark:bg-brand-900/40 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800/60 text-xs font-bold tracking-wide">
+                            <span class="w-2.5 h-2.5 rounded-full bg-accent-emerald animate-pulse"></span>
+                            Open for Customer Care, Administration & Mentorship Roles
+                        </div>
+                        
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                            Dede Eri <br class="hidden sm:inline"/>
+                            <span class="gradient-text">Ismunandar, S.S.</span>
+                        </h1>
+                        
+                        <p class="text-lg sm:text-xl text-slate-700 dark:text-slate-300 font-semibold leading-snug">
+                            Multifaceted Operations & Customer Care Specialist | Bilingual Communicator (English & Arabic)
+                        </p>
+                        
+                        <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                            English Literature Graduate (B.A., S.S. | GPA 3.60/4.00) from UNSIQ Wonosobo & Modern Islamic Boarding School alumnus. Combines 3+ years of experience in stakeholder relations, conflict resolution, administrative governance, and youth mentorship.
+                        </p>
+
+                        <!-- Key Attribute Badges -->
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1">
+                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-bold flex items-center gap-1.5">
+                                <i class="fa-solid fa-graduation-cap text-brand-600"></i> GPA 3.60 / 4.00
+                            </span>
+                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-bold flex items-center gap-1.5">
+                                <i class="fa-solid fa-award text-accent-emerald"></i> Saylor Certified
+                            </span>
+                            <span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-bold flex items-center gap-1.5">
+                                <i class="fa-solid fa-earth-asia text-accent-cyan"></i> Bilingual Professional
+                            </span>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-3">
+                            <a href="https://wa.me/6285695689472" target="_blank" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm text-center shadow-lg shadow-brand-600/30 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-base"></i> Direct Contact
+                            </a>
+                            <a href="#services" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 font-bold text-sm text-center transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-briefcase text-brand-600"></i> Explore Portfolio
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Profile Card Column -->
+                    <div class="lg:col-span-5">
+                        <div class="glass-card rounded-3xl p-6 sm:p-7 shadow-2xl relative border border-slate-200 dark:border-slate-800">
+                            
+                            <!-- Dynamic Focus Selector for Photo Frame -->
+                            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-500">
+                                <span>PROFILE CARD</span>
+                                <div class="flex gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-lg no-print">
+                                    <button onclick="switchPhotoAngle('formal')" id="angle-formal" class="px-2 py-1 rounded bg-white dark:bg-slate-700 text-brand-600 dark:text-brand-300 shadow-sm font-bold text-[10px]">Formal</button>
+                                    <button onclick="switchPhotoAngle('admin')" id="angle-admin" class="px-2 py-1 rounded text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 font-bold text-[10px]">Admin</button>
+                                    <button onclick="switchPhotoAngle('service')" id="angle-service" class="px-2 py-1 rounded text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 font-bold text-[10px]">Service</button>
+                                </div>
+                            </div>
+
+                            <!-- Photo & Basic Info Block -->
+                            <div class="flex items-center gap-5 pb-5">
+                                <div class="relative group shrink-0">
+                                    <div class="w-28 h-36 rounded-2xl overflow-hidden border-2 border-brand-500/30 ring-4 ring-brand-500/10 shadow-lg relative bg-slate-200 dark:bg-slate-800">
+                                        <img id="profileImage"
+                                             src="https://lh3.googleusercontent.com/d/1YEx8NtbXq5yiTxDQ5GmWedljsDKTmgRp" 
+                                             alt="Dede Eri Ismunandar" 
+                                             onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1YEx8NtbXq5yiTxDQ5GmWedljsDKTmgRp';"
+                                             class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                                    </div>
+                                    <span class="absolute -bottom-2 -right-2 w-6 h-6 bg-accent-emerald rounded-full border-2 border-white dark:border-slate-900 flex items-center justify-center text-white text-[10px]" title="Available for Hiring">
+                                        <i class="fa-solid fa-check"></i>
+                                    </span>
+                                </div>
+
+                                <div class="space-y-1.5">
+                                    <h3 class="text-lg font-extrabold text-slate-900 dark:text-white leading-tight">Dede Eri Ismunandar, S.S.</h3>
+                                    <div class="inline-block px-2.5 py-0.5 rounded-md bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-300 text-[11px] font-bold">
+                                        Bachelor of Arts (S.S.)
+                                    </div>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                                        English Literature & Applied Psychology
+                                    </p>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5 pt-1">
+                                        <i class="fa-regular fa-envelope text-brand-500"></i> deriismunandar@gmail.com
+                                    </p>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                                        <i class="fa-brands fa-whatsapp text-accent-emerald"></i> +62 856 9568 9472
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic Key Focus Badge List -->
+                            <div id="dynamicAngleContent" class="space-y-3.5 pt-4 border-t border-slate-200 dark:border-slate-800 text-xs">
+                                <div class="flex items-start gap-3">
+                                    <span class="p-2 rounded-xl bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 font-bold shrink-0">
+                                        <i class="fa-solid fa-headset text-sm"></i>
+                                    </span>
+                                    <div>
+                                        <p class="font-bold text-slate-900 dark:text-white">Stakeholder & Client Care</p>
+                                        <p class="text-slate-500 dark:text-slate-400 text-[11px]">3+ years handling parent/client communications and resolving high-volume inquiries.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3">
+                                    <span class="p-2 rounded-xl bg-accent-emerald/10 text-accent-emerald font-bold shrink-0">
+                                        <i class="fa-solid fa-file-signature text-sm"></i>
+                                    </span>
+                                    <div>
+                                        <p class="font-bold text-slate-900 dark:text-white">Organizational Governance</p>
+                                        <p class="text-slate-500 dark:text-slate-400 text-[11px]">Former Organization Secretary skilled in formal correspondence, proposals & archiving.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-3">
+                                    <span class="p-2 rounded-xl bg-accent-cyan/10 text-accent-cyan font-bold shrink-0">
+                                        <i class="fa-solid fa-brain text-sm"></i>
+                                    </span>
+                                    <div>
+                                        <p class="font-bold text-slate-900 dark:text-white">Adolescent Behavior Analysis</p>
+                                        <p class="text-slate-500 dark:text-slate-400 text-[11px]">Academic thesis on psychological defense mechanisms & interpersonal conflict resolution.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="py-10 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/80">
+                        <div class="text-3xl sm:text-4xl font-black text-brand-600 dark:text-brand-400">3+</div>
+                        <div class="text-xs font-bold text-slate-800 dark:text-slate-200 mt-1">Years Field Experience</div>
+                        <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Service, Admin & Mentorship</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/80">
+                        <div class="text-3xl sm:text-4xl font-black text-accent-emerald">3.60</div>
+                        <div class="text-xs font-bold text-slate-800 dark:text-slate-200 mt-1">Graduation GPA</div>
+                        <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">B.A. English Literature (UNSIQ)</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/80">
+                        <div class="text-3xl sm:text-4xl font-black text-accent-cyan">5+</div>
+                        <div class="text-xs font-bold text-slate-800 dark:text-slate-200 mt-1">Global Credentials</div>
+                        <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Saylor Academy Certificates</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/80">
+                        <div class="text-3xl sm:text-4xl font-black text-brand-500">100%</div>
+                        <div class="text-xs font-bold text-slate-800 dark:text-slate-200 mt-1">Resolution Rate</div>
+                        <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Stakeholder Inquiries & Crisis Management</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-14">
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400">Core Value Proposition</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mt-2">What I Can Help You With</h2>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">Specialized expertise tailored for HRD & Hiring Managers seeking solution-driven professionals.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Service Pillar 1 -->
+                    <div class="glass-card rounded-2xl p-6 transition-all hover:-translate-y-1 hover:border-brand-500 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-300 flex items-center justify-center text-xl mb-5 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-headset"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Customer Care & Client Relations</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                                Managing high-volume stakeholder communications, complaint handling, parent/client liaison, and diplomatic crisis mitigation.
+                            </p>
+                        </div>
+                        <ul class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 space-y-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-accent-emerald"></i> Active Listening & Empathy</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-accent-emerald"></i> Conflict Resolution</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service Pillar 2 -->
+                    <div class="glass-card rounded-2xl p-6 transition-all hover:-translate-y-1 hover:border-accent-emerald flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 text-accent-emerald flex items-center justify-center text-xl mb-5 group-hover:bg-accent-emerald group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-folder-tree"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Office & Digital Administration</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                                Preparing formal correspondence, digital archiving, proposal drafting, data entry, and structured MS Office reporting.
+                            </p>
+                        </div>
+                        <ul class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 space-y-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-accent-emerald"></i> Proofreading & Editing</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-accent-emerald"></i> Archiving Governance</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service Pillar 3 -->
+                    <div class="glass-card rounded-2xl p-6 transition-all hover:-translate-y-1 hover:border-accent-cyan flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-cyan-100 dark:bg-cyan-900/50 text-accent-cyan flex items-center justify-center text-xl mb-5 group-hover:bg-accent-cyan group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Digital Comm & Copywriting</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                                Crafting persuasive bilingual copy (ID & EN), managing social media channels, audience behavior analysis, and event PR.
+                            </p>
+                        </div>
+                        <ul class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 space-y-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-accent-emerald"></i> Audience Psychology</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-accent-emerald"></i> Community Management</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service Pillar 4 -->
+                    <div class="glass-card rounded-2xl p-6 transition-all hover:-translate-y-1 hover:border-brand-500 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-600 flex items-center justify-center text-xl mb-5 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-chalkboard-user"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Educational & Youth Mentorship</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                                Interactive classroom teaching, dormitory discipline management, character building, and adolescent developmental counseling.
+                            </p>
+                        </div>
+                        <ul class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 space-y-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-accent-emerald"></i> ESL Instruction</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-accent-emerald"></i> Character Mentorship</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 bg-slate-100/70 dark:bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+                    
+                    <!-- Column 1: Narrative Background -->
+                    <div class="md:col-span-7 glass-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400">Background Narrative</span>
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-1 mb-4">Adaptable, Disciplined & Communicative Professional</h3>
+                            <div class="space-y-3.5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                <p>
+                                    I am a Bachelor of Arts (S.S.) graduate in <strong>English Literature</strong> from <strong>Universitas Sains Al-Qur’an (UNSIQ) Wonosobo</strong> with a GPA of <strong>3.60 / 4.00</strong>. My educational journey combines rigorous academic literary research with a bilingual foundation (English & Arabic) cultivated at <strong>Pesantren Modern Ummul Quro Al-Islami Bogor</strong>.
+                                </p>
+                                <p>
+                                    Over the past 3 years, I served as an <strong>Operations Supervisor, Educator, and Customer Care Representative</strong> across various educational institutions (MBI ALAM Wonosobo, Ponpes Al-Falahiyyah Tangerang, and SDIT Idrisiyyah Tangerang). I acted as the primary liaison managing stakeholder communications, parent feedback, and operational order.
+                                </p>
+                                <p>
+                                    My undergraduate thesis examined <em>adolescent defense mechanisms and psychological dynamics</em> (analyzing Inside Out 2), which directly enriched my theoretical and practical grasp of human communication psychology, conflict resolution, and active listening.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-4 text-xs font-bold text-slate-700 dark:text-slate-300">
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-brand-600"></i> High Ethical Standards</span>
+                            <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-accent-emerald"></i> Punctual & Detail-Oriented</span>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Education & Academic Focus -->
+                    <div class="md:col-span-5 space-y-6 flex flex-col justify-between">
+                        <div class="glass-card rounded-3xl p-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="p-2.5 rounded-xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 dark:text-brand-300">
+                                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 dark:text-white text-base">Formal Education</h4>
+                                    <p class="text-[11px] text-slate-500">Academic & Language Foundation</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4 text-xs">
+                                <div class="border-l-2 border-brand-500 pl-3.5 py-0.5">
+                                    <div class="flex justify-between items-center">
+                                        <h5 class="font-bold text-slate-800 dark:text-slate-200">Universitas Sains Al-Qur’an</h5>
+                                        <span class="text-[10px] px-2 py-0.5 rounded bg-brand-50 dark:bg-brand-900/40 text-brand-600 font-extrabold">GPA 3.60</span>
+                                    </div>
+                                    <p class="text-slate-500 font-medium">Bachelor of Arts (S.S.) - English Literature</p>
+                                    <p class="text-slate-500 dark:text-slate-400 mt-1 text-[11px]">Thesis Focus: Psychological defense mechanisms & adolescent behavioral adaptation.</p>
+                                </div>
+
+                                <div class="border-l-2 border-slate-300 dark:border-slate-700 pl-3.5 py-0.5">
+                                    <div class="flex justify-between items-center">
+                                        <h5 class="font-bold text-slate-800 dark:text-slate-200">Pesantren Modern Ummul Quro</h5>
+                                        <span class="text-[10px] text-slate-400">Bogor, West Java</span>
+                                    </div>
+                                    <p class="text-slate-500 font-medium">Bilingual Modern High School (English & Arabic)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Core Service Principle Quote Box -->
+                        <div class="glass-card rounded-3xl p-6 bg-gradient-to-br from-brand-600 to-indigo-800 text-white shadow-xl">
+                            <h4 class="font-bold text-sm mb-1.5 flex items-center gap-2">
+                                <i class="fa-solid fa-quote-left text-brand-300"></i> Core Work Ethic
+                            </h4>
+                            <p class="text-xs text-brand-100 leading-relaxed italic">
+                                "Professional service excellence is achieved by pairing active empathy with administrative precision — ensuring every stakeholder feels understood and every operational detail is handled accurately."
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-10">
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400">Track Record Showcase</span>
+                    <h2 class="text-3xl font-black text-slate-900 dark:text-white mt-1">Experience & Leadership Matrix</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Filter by specialization to review relevant roles and achievements.</p>
+                </div>
+
+                <!-- Interactive Filter Tabs -->
+                <div class="flex justify-center flex-wrap gap-2 mb-10 no-print">
+                    <button onclick="filterExperience('all')" id="exp-btn-all" class="exp-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-brand-600 text-white shadow-md transition-all">
+                        All Roles
+                    </button>
+                    <button onclick="filterExperience('cs-ops')" id="exp-btn-cs-ops" class="exp-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 transition-all">
+                        <i class="fa-solid fa-headset mr-1"></i> Customer Care & Operations
+                    </button>
+                    <button onclick="filterExperience('admin-org')" id="exp-btn-admin-org" class="exp-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 transition-all">
+                        <i class="fa-solid fa-file-invoice mr-1"></i> Admin & Governance
+                    </button>
+                    <button onclick="filterExperience('edu-mentorship')" id="exp-btn-edu-mentorship" class="exp-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 transition-all">
+                        <i class="fa-solid fa-chalkboard-user mr-1"></i> Education & Mentorship
+                    </button>
+                    <button onclick="filterExperience('projects-media')" id="exp-btn-projects-media" class="exp-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 transition-all">
+                        <i class="fa-solid fa-bullhorn mr-1"></i> Projects & Events
+                    </button>
+                </div>
+
+                <!-- Timeline / Experience Cards Container -->
+                <div class="space-y-6 max-w-4xl mx-auto">
+                    
+                    <!-- Card 1: Customer Care & Dormitory Supervisor -->
+                    <div class="exp-card cs-ops edu-mentorship glass-card rounded-2xl p-6 sm:p-7 border-l-4 border-l-brand-600 transition-all hover:shadow-xl">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div>
+                                <span class="px-2.5 py-0.5 rounded bg-brand-50 dark:bg-brand-900/40 text-brand-600 text-[10px] font-extrabold uppercase">Primary Work Experience</span>
+                                <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mt-1">Operations Supervisor, Educator & Customer Care</h3>
+                                <p class="text-xs font-semibold text-slate-600 dark:text-slate-400">
+                                    MBI ALAM Wonosobo | Ponpes Al-Falahiyyah Tangerang | SDIT Idrisiyyah Tangerang
+                                </p>
+                            </div>
+                            <span class="text-xs font-bold px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 self-start sm:self-center shrink-0">
+                                2020 – 2023
+                            </span>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
+                            <li><strong>Stakeholder Liaison:</strong> Acted as primary liaison for parents/guardians, delivering accurate student progress reports and resolving inquiries with high satisfaction.</li>
+                            <li><strong>Conflict & Crisis Resolution:</strong> Managed daily dynamics for 100+ students, applying psychological empathy and proactive conflict handling.</li>
+                            <li><strong>Operational Governance:</strong> Managed daily scheduling, student activity logs, and administrative record-keeping with high accuracy.</li>
+                            <li><strong>Instructional Delivery:</strong> Designed interactive English learning modules and mentored adolescent students.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2: Secretary - DPK GMNI Wonosobo -->
+                    <div class="exp-card admin-org glass-card rounded-2xl p-6 sm:p-7 border-l-4 border-l-accent-emerald transition-all hover:shadow-xl">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div>
+                                <span class="px-2.5 py-0.5 rounded bg-emerald-50 dark:bg-emerald-900/40 text-accent-emerald text-[10px] font-extrabold uppercase">Organizational Leadership</span>
+                                <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mt-1">Secretary (Organization Administration)</h3>
+                                <p class="text-xs font-semibold text-slate-600 dark:text-slate-400">DPK GMNI Wonosobo</p>
+                            </div>
+                            <span class="text-xs font-bold px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 self-start sm:self-center shrink-0">
+                                2025 – 2026
+                            </span>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
+                            <li><strong>Official Correspondence & Archiving:</strong> Handled incoming/outgoing correspondence, official letters, and digital database management.</li>
+                            <li><strong>Proposal & Report Drafting:</strong> Authored structured event proposals, budgeting documents, and executive activity reports using MS Office.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 3: Head of Member Resources Division -->
+                    <div class="exp-card admin-org projects-media glass-card rounded-2xl p-6 sm:p-7 border-l-4 border-l-accent-cyan transition-all hover:shadow-xl">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div>
+                                <span class="px-2.5 py-0.5 rounded bg-cyan-50 dark:bg-cyan-900/40 text-accent-cyan text-[10px] font-extrabold uppercase">Departmental Head</span>
+                                <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mt-1">Head of Member Resources Division</h3>
+                                <p class="text-xs font-semibold text-slate-600 dark:text-slate-400">English Literature Student Association (Hima Prodi Sastra Inggris UNSIQ)</p>
+                            </div>
+                            <span class="text-xs font-bold px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 self-start sm:self-center shrink-0">
+                                2024
+                            </span>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
+                            <li>Coordinated internal member engagement, monitored program completion rates, and drove team retention strategies.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 4: Project Leader - PPAB GMNI -->
+                    <div class="exp-card projects-media admin-org glass-card rounded-2xl p-6 sm:p-7 border-l-4 border-l-amber-500 transition-all hover:shadow-xl">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div>
+                                <span class="px-2.5 py-0.5 rounded bg-amber-50 dark:bg-amber-900/40 text-amber-600 text-[10px] font-extrabold uppercase">Project Management</span>
+                                <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mt-1">Project Leader - New Member Recruitment (PPAB)</h3>
+                                <p class="text-xs font-semibold text-slate-600 dark:text-slate-400">GMNI Wonosobo</p>
+                            </div>
+                            <span class="text-xs font-bold px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 self-start sm:self-center shrink-0">
+                                2025
+                            </span>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
+                            <li>Led end-to-end recruitment campaign from timeline creation to execution, overseeing sub-teams and administrative workflows.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 5: Lead Organizational Advisor -->
+                    <div class="exp-card edu-mentorship admin-org glass-card rounded-2xl p-6 sm:p-7 border-l-4 border-l-brand-500 transition-all hover:shadow-xl">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                            <div>
+                                <span class="px-2.5 py-0.5 rounded bg-brand-50 dark:bg-brand-900/40 text-brand-600 text-[10px] font-extrabold uppercase">Advisory Role</span>
+                                <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mt-1">Lead Organizational Advisor</h3>
+                                <p class="text-xs font-semibold text-slate-600 dark:text-slate-400">Al-Falahiyyah Boarding School</p>
+                            </div>
+                            <span class="text-xs font-bold px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 self-start sm:self-center shrink-0">
+                                2021 – 2022
+                            </span>
+                        </div>
+                        <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-300 list-disc list-inside leading-relaxed">
+                            <li>Formulated annual operational roadmaps and conducted performance reviews to maintain administrative standards.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="py-20 bg-slate-100/70 dark:bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-12">
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400">Verified Qualifications</span>
+                    <h2 class="text-3xl font-black text-slate-900 dark:text-white mt-1">Global Certifications (Saylor Academy)</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Formal competency credentials validating professional standards in communication, service, and ESL teaching.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Cert 1 -->
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-brand-500 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center text-lg shadow-md shrink-0">
+                                    <i class="fa-solid fa-headset"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] font-bold text-brand-600 dark:text-brand-400 uppercase">Saylor Academy / University</span>
+                                    <h4 class="text-base font-bold text-slate-900 dark:text-white">Customer Service</h4>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Complaint management, customer satisfaction strategy, digital business communication, professional standards.</p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-bold text-accent-emerald">
+                            <span><i class="fa-solid fa-circle-check"></i> Verified Competency</span>
+                        </div>
+                    </div>
+
+                    <!-- Cert 2 -->
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-accent-emerald transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-accent-emerald text-white flex items-center justify-center text-lg shadow-md shrink-0">
+                                    <i class="fa-solid fa-comments"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] font-bold text-accent-emerald uppercase">Saylor Academy / University</span>
+                                    <h4 class="text-base font-bold text-slate-900 dark:text-white">Interpersonal Communication</h4>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Assertive communication, active listening, conflict management, empathy, interpersonal problem solving.</p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-bold text-accent-emerald">
+                            <span><i class="fa-solid fa-circle-check"></i> Verified Competency</span>
+                        </div>
+                    </div>
+
+                    <!-- Cert 3 -->
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-accent-cyan transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-accent-cyan text-white flex items-center justify-center text-lg shadow-md shrink-0">
+                                    <i class="fa-solid fa-display"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] font-bold text-accent-cyan uppercase">Saylor Academy / University</span>
+                                    <h4 class="text-base font-bold text-slate-900 dark:text-white">Delivering Presentations</h4>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Audience analysis, effective visual media design, non-verbal delivery, stage anxiety management, Q&A handling.</p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-bold text-accent-emerald">
+                            <span><i class="fa-solid fa-circle-check"></i> Verified Competency</span>
+                        </div>
+                    </div>
+
+                    <!-- Cert 4 -->
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-amber-500 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center text-lg shadow-md shrink-0">
+                                    <i class="fa-solid fa-language"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] font-bold text-amber-500 uppercase">Saylor Academy / University</span>
+                                    <h4 class="text-base font-bold text-slate-900 dark:text-white">English as a Second Language</h4>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Advanced grammar mastery, reading comprehension, conversation fluency, intermediate & advanced ESL standards.</p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-bold text-accent-emerald">
+                            <span><i class="fa-solid fa-circle-check"></i> Verified Competency</span>
+                        </div>
+                    </div>
+
+                    <!-- Cert 5 -->
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-brand-500 transition-all flex flex-col justify-between lg:col-span-2">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center text-lg shadow-md shrink-0">
+                                    <i class="fa-solid fa-people-group"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] font-bold text-brand-600 dark:text-brand-400 uppercase">Saylor Academy / University</span>
+                                    <h4 class="text-base font-bold text-slate-900 dark:text-white">Group Communication & Dynamics</h4>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Group behavior analysis, conflict resolution in team/classroom environments, active listening, and team synchronization.</p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-bold text-accent-emerald">
+                            <span><i class="fa-solid fa-circle-check"></i> Verified Competency</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-12">
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400">Featured Case Studies</span>
+                    <h2 class="text-3xl font-black text-slate-900 dark:text-white mt-1">Academic Research & Media Projects</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Demonstrating analytical rigor, copywriting skill, and public relations execution.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    
+                    <!-- Case Study 1: Thesis -->
+                    <div class="glass-card rounded-3xl p-6 sm:p-7 relative border border-slate-200 dark:border-slate-800">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded-md bg-brand-50 dark:bg-brand-900/40 text-brand-600 text-[10px] font-extrabold uppercase">Undergraduate Research Thesis</span>
+                            <span class="text-xs font-bold text-slate-400">S1 English Literature (S.S.)</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                            “Defense Mechanisms Role In Riley's Adolescence In The Movie Inside Out 2”
+                        </h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            Analyzed psychological defense mechanisms and adaptation dynamics in adolescents. Applied literary and psychological theories to explain interpersonal friction, anxiety responses, and communication strategies in young adults.
+                        </p>
+                        <div class="bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl text-[11px] text-slate-700 dark:text-slate-300 font-medium space-y-1">
+                            <div class="font-bold text-brand-600 dark:text-brand-400">HRD Takeaway:</div>
+                            <div>Provides strong theoretical backing for active listening, empathetic problem solving, and teenage/client counseling.</div>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 2: Public Relations Event -->
+                    <div class="glass-card rounded-3xl p-6 sm:p-7 relative border border-slate-200 dark:border-slate-800">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded-md bg-emerald-50 dark:bg-emerald-900/40 text-accent-emerald text-[10px] font-extrabold uppercase">PR & Event Facilitation</span>
+                            <span class="text-xs font-bold text-slate-400">Cinetalk 2 Project</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                            Regional High School Media Seminar & Discussion
+                        </h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            Acted as PR liaison and audience facilitator for high school representatives across Wonosobo. Managed event logistics, speaker hospitality, and audience interaction to foster an inclusive discussion atmosphere.
+                        </p>
+                        <div class="bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl text-[11px] text-slate-700 dark:text-slate-300 font-medium space-y-1">
+                            <div class="font-bold text-accent-emerald">HRD Takeaway:</div>
+                            <div>Demonstrates public speaking agility, hospitality management, and event communication execution.</div>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 3: Proofreading & Document Quality -->
+                    <div class="glass-card rounded-3xl p-6 sm:p-7 relative border border-slate-200 dark:border-slate-800">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded-md bg-cyan-50 dark:bg-cyan-900/40 text-accent-cyan text-[10px] font-extrabold uppercase">Academic Project</span>
+                            <span class="text-xs font-bold text-slate-400">Theory of Literature & Editing</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                            Structured Report Editing & Proofreading
+                        </h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            Evaluated, formatted, and error-checked complex reports before final publication. Rigorous training in detecting typographical errors, grammatical consistency, and formal document formatting.
+                        </p>
+                        <div class="bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl text-[11px] text-slate-700 dark:text-slate-300 font-medium space-y-1">
+                            <div class="font-bold text-accent-cyan">HRD Takeaway:</div>
+                            <div>Ensures zero-error tolerance for administrative reports, official letters, and executive presentations.</div>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 4: Social Media Management -->
+                    <div class="glass-card rounded-3xl p-6 sm:p-7 relative border border-slate-200 dark:border-slate-800">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-2.5 py-1 rounded-md bg-amber-50 dark:bg-amber-900/40 text-amber-600 text-[10px] font-extrabold uppercase">Digital Media Admin</span>
+                            <span class="text-xs font-bold text-slate-400">Instagram FEB GMNI</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                            Character Building Content & Community Engagement
+                        </h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            Designed analytical social media posts focused on cadre character development, copywriting, and interactive community Q&A response handling.
+                        </p>
+                        <div class="bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl text-[11px] text-slate-700 dark:text-slate-300 font-medium space-y-1">
+                            <div class="font-bold text-amber-600">HRD Takeaway:</div>
+                            <div>Combines copywriting flair with digital community moderation and brand tone adherence.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20 bg-slate-100/70 dark:bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center mb-12">
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-brand-600 dark:text-brand-400">Skill Spectrum</span>
+                    <h2 class="text-3xl font-black text-slate-900 dark:text-white mt-1">Tools & Competency Ecosystem</h2>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Comprehensive stack spanning administrative software, languages, and interpersonal attributes.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Language Competency Card -->
+                    <div class="glass-card rounded-3xl p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="p-3 rounded-2xl bg-brand-100 dark:bg-brand-900/50 text-brand-600 shrink-0">
+                                    <i class="fa-solid fa-language text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Language Proficiency</h3>
+                            </div>
+
+                            <div class="space-y-4 text-xs font-bold">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>Indonesian</span>
+                                        <span class="text-brand-600">Native / Formal</span>
+                                    </div>
+                                    <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                                        <div class="h-2 rounded-full bg-brand-600" style="width: 100%"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>English</span>
+                                        <span class="text-brand-600">Professional Working (S.S. Literature)</span>
+                                    </div>
+                                    <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                                        <div class="h-2 rounded-full bg-brand-600" style="width: 90%"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>Arabic</span>
+                                        <span class="text-slate-500">Basic / Boarding Alumnus</span>
+                                    </div>
+                                    <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                                        <div class="h-2 rounded-full bg-brand-600" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-slate-500 mt-6 pt-4 border-t border-slate-200 dark:border-slate-800">
+                            Bilingual schooling at Ummul Quro Boarding School & English Literature S.S. degree.
+                        </p>
+                    </div>
+
+                    <!-- Technical & Administrative Tools Card -->
+                    <div class="glass-card rounded-3xl p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="p-3 rounded-2xl bg-emerald-100 dark:bg-emerald-900/50 text-accent-emerald shrink-0">
+                                    <i class="fa-solid fa-laptop-code text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Tools & Software Stack</h3>
+                            </div>
+
+                            <div class="space-y-2.5 text-xs font-semibold">
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-between">
+                                    <span class="flex items-center gap-2"><i class="fa-solid fa-file-word text-blue-500"></i> MS Word & Documentation</span>
+                                    <span class="text-[10px] font-bold text-accent-emerald bg-emerald-100 dark:bg-emerald-900/40 px-2 py-0.5 rounded">Advanced</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-between">
+                                    <span class="flex items-center gap-2"><i class="fa-solid fa-file-excel text-emerald-500"></i> MS Excel Data Admin</span>
+                                    <span class="text-[10px] font-bold text-accent-emerald bg-emerald-100 dark:bg-emerald-900/40 px-2 py-0.5 rounded">Proficient</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-between">
+                                    <span class="flex items-center gap-2"><i class="fa-solid fa-file-powerpoint text-orange-500"></i> MS PowerPoint Presentation</span>
+                                    <span class="text-[10px] font-bold text-accent-emerald bg-emerald-100 dark:bg-emerald-900/40 px-2 py-0.5 rounded">Proficient</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-between">
+                                    <span class="flex items-center gap-2"><i class="fa-solid fa-cloud text-cyan-500"></i> Google Workspace Archiving</span>
+                                    <span class="text-[10px] font-bold text-accent-emerald bg-emerald-100 dark:bg-emerald-900/40 px-2 py-0.5 rounded">Proficient</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-slate-500 mt-6 pt-4 border-t border-slate-200 dark:border-slate-800">
+                            Hands-on secretarial experience managing digital archiving & proposal formatting.
+                        </p>
+                    </div>
+
+                    <!-- Interpersonal & Soft Competencies Card -->
+                    <div class="glass-card rounded-3xl p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="p-3 rounded-2xl bg-cyan-100 dark:bg-cyan-900/50 text-accent-cyan shrink-0">
+                                    <i class="fa-solid fa-brain text-xl"></i>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Interpersonal Attributes</h3>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold border border-slate-200 dark:border-slate-700">
+                                    <i class="fa-solid fa-check text-brand-500 mr-1"></i> Complaint Resolution
+                                </span>
+                                <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold border border-slate-200 dark:border-slate-700">
+                                    <i class="fa-solid fa-check text-brand-500 mr-1"></i> Conflict Management
+                                </span>
+                                <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold border border-slate-200 dark:border-slate-700">
+                                    <i class="fa-solid fa-check text-brand-500 mr-1"></i> Public Speaking
+                                </span>
+                                <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold border border-slate-200 dark:border-slate-700">
+                                    <i class="fa-solid fa-check text-brand-500 mr-1"></i> Copywriting
+                                </span>
+                                <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold border border-slate-200 dark:border-slate-700">
+                                    <i class="fa-solid fa-check text-brand-500 mr-1"></i> Active Listening
+                                </span>
+                                <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-semibold border border-slate-200 dark:border-slate-700">
+                                    <i class="fa-solid fa-check text-brand-500 mr-1"></i> Time Management
+                                </span>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-slate-500 mt-6 pt-4 border-t border-slate-200 dark:border-slate-800">
+                            Backed by thesis research on psychological defense mechanisms and behavioral adaptation.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+            <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-6 space-y-6">
+                        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-400">Let's Connect</span>
+                        <h2 class="text-3xl sm:text-4xl font-black tracking-tight">Ready to Contribute Value & Excellence to Your Team</h2>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                            Looking for a reliable Customer Care Specialist, Office Administrator, or Educator with proven communication psychology background and administrative precision? Feel free to reach out directly.
+                        </p>
+
+                        <div class="space-y-3.5 pt-2 text-xs sm:text-sm">
+                            <a href="mailto:deriismunandar@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/80 hover:bg-slate-800 transition-colors border border-slate-700/80">
+                                <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center text-lg shrink-0">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-slate-400 font-bold uppercase">Official Email</div>
+                                    <div class="font-bold text-white">deriismunandar@gmail.com</div>
+                                </div>
+                            </a>
+
+                            <a href="https://wa.me/6285695689472" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/80 hover:bg-slate-800 transition-colors border border-slate-700/80">
+                                <div class="w-10 h-10 rounded-xl bg-accent-emerald text-white flex items-center justify-center text-lg shrink-0">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-slate-400 font-bold uppercase">Phone / WhatsApp</div>
+                                    <div class="font-bold text-white">+62 856 9568 9472</div>
+                                </div>
+                            </a>
+
+                            <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/80 border border-slate-700/80">
+                                <div class="w-10 h-10 rounded-xl bg-accent-rose text-white flex items-center justify-center text-lg shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-slate-400 font-bold uppercase">Location</div>
+                                    <div class="font-bold text-white">Wonosobo / Bogor, Central & West Java, Indonesia</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct Message Form -->
+                    <div class="lg:col-span-6">
+                        <div class="bg-slate-800/90 rounded-3xl p-6 sm:p-8 border border-slate-700/80 shadow-2xl">
+                            <h3 class="text-lg font-bold mb-4">Send a Direct Inquiry</h3>
+                            <form action="https://formsubmit.co/deriismunandar@gmail.com" method="POST" onsubmit="handleFormSubmit(event)" class="space-y-3.5 text-xs">
+                                <input type="hidden" name="_subject" value="New Portfolio Inquiry for Dede Eri Ismunandar">
+                                <input type="hidden" name="_captcha" value="false">
+                                <div>
+                                    <label class="block font-semibold text-slate-300 mb-1">Your Name / Organization</label>
+                                    <input type="text" name="name" id="form-name" required placeholder="e.g. HR Manager / Company Name" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-brand-500 transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block font-semibold text-slate-300 mb-1">Contact Email / Phone</label>
+                                    <input type="text" name="contact" id="form-contact" required placeholder="email@company.com / +62..." class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-brand-500 transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block font-semibold text-slate-300 mb-1">Message / Position Offer</label>
+                                    <textarea name="message" id="form-message" rows="4" required placeholder="Hello Dede, we reviewed your portfolio and would like to invite you..." class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-brand-500 transition-colors resize-none"></textarea>
+                                </div>
+                                <button type="submit" id="submitBtn" class="w-full py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2 text-xs uppercase tracking-wider">
+                                    <i class="fa-solid fa-paper-plane"></i> Send Direct Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-950 text-slate-500 py-8 border-t border-slate-800 text-xs no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 Dede Eri Ismunandar, S.S. All rights reserved.</p>
+            <a href="#home" class="hover:text-slate-300 transition-colors flex items-center gap-1 font-semibold">
+                Back to Top <i class="fa-solid fa-arrow-up"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Banner -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700 text-xs font-semibold flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <i class="fa-solid fa-circle-check text-accent-emerald text-base"></i>
+        <span id="toast-message">Notification</span>
+    </div>
+
+    <script>
+        // 1. Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggle');
+        
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+
+        // 2. Mobile Menu Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 3. Photo Angle / Dynamic Focus Switcher
+        function switchPhotoAngle(angle) {
+            const angleBtns = ['formal', 'admin', 'service'];
+            angleBtns.forEach(btn => {
+                const element = document.getElementById(`angle-${btn}`);
+                if (element) {
+                    element.className = "px-2 py-1 rounded text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 font-bold text-[10px]";
+                }
+            });
+
+            const activeBtn = document.getElementById(`angle-${angle}`);
+            if (activeBtn) {
+                activeBtn.className = "px-2 py-1 rounded bg-white dark:bg-slate-700 text-brand-600 dark:text-brand-300 shadow-sm font-bold text-[10px]";
+            }
+
+            const dynamicContainer = document.getElementById('dynamicAngleContent');
+            
+            if (angle === 'formal') {
+                dynamicContainer.innerHTML = `
+                    <div class="flex items-start gap-3">
+                        <span class="p-2 rounded-xl bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 font-bold shrink-0">
+                            <i class="fa-solid fa-headset text-sm"></i>
+                        </span>
+                        <div>
+                            <p class="font-bold text-slate-900 dark:text-white">Stakeholder & Client Care</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-[11px]">3+ years handling parent/client communications and resolving high-volume inquiries.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="p-2 rounded-xl bg-accent-emerald/10 text-accent-emerald font-bold shrink-0">
+                            <i class="fa-solid fa-file-signature text-sm"></i>
+                        </span>
+                        <div>
+                            <p class="font-bold text-slate-900 dark:text-white">Organizational Governance</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-[11px]">Former Organization Secretary skilled in formal correspondence, proposals & archiving.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="p-2 rounded-xl bg-accent-cyan/10 text-accent-cyan font-bold shrink-0">
+                            <i class="fa-solid fa-brain text-sm"></i>
+                        </span>
+                        <div>
+                            <p class="font-bold text-slate-900 dark:text-white">Adolescent Behavior Analysis</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-[11px]">Academic thesis on psychological defense mechanisms & interpersonal conflict resolution.</p>
+                        </div>
+                    </div>`;
+            } else if (angle === 'admin') {
+                dynamicContainer.innerHTML = `
+                    <div class="flex items-start gap-3">
+                        <span class="p-2 rounded-xl bg-accent-emerald/10 text-accent-emerald font-bold shrink-0">
+                            <i class="fa-solid fa-file-word text-sm"></i>
+                        </span>
+                        <div>
+                            <p class="font-bold text-slate-900 dark:text-white">MS Office & Document Archiving</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-[11px]">Structured report generation, formatting, data administration, and digital record keeping.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="p-2 rounded-xl bg-brand-50 dark:bg-brand-900/30 text-brand-600 font-bold shrink-0">
+                            <i class="fa-solid fa-pen-nib text-sm"></i>
+                        </span>
+                        <div>
+                            <p class="font-bold text-slate-900 dark:text-white">Proofreading & Quality Control</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-[11px]">Rigorous error checking and editing for official correspondence and proposals.</p>
+                        </div>
+                    </div>`;
+            } else if (angle === 'service') {
+                dynamicContainer.innerHTML = `
+                    <div class="flex items-start gap-3">
+                        <span class="p-2 rounded-xl bg-accent-cyan/10 text-accent-cyan font-bold shrink-0">
+                            <i class="fa-solid fa-award text-sm"></i>
+                        </span>
+                        <div>
+                            <p class="font-bold text-slate-900 dark:text-white">Saylor Certified Service Standard</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-[11px]">Certified in Complaint Management, Assertive Communication, & Group Dynamics.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="p-2 rounded-xl bg-amber-50 dark:bg-amber-900/30 text-amber-600 font-bold shrink-0">
+                            <i class="fa-solid fa-comments text-sm"></i>
+                        </span>
+                        <div>
+                            <p class="font-bold text-slate-900 dark:text-white">Bilingual Parent Liaison</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-[11px]">Professional communication in English and Indonesian with empathetic problem solving.</p>
+                        </div>
+                    </div>`;
+            }
+        }
+
+        // 4. Filterable Experience Timeline
+        function filterExperience(category) {
+            const cards = document.querySelectorAll('.exp-card');
+            const btns = document.querySelectorAll('.exp-filter-btn');
+
+            btns.forEach(btn => {
+                btn.className = "exp-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 transition-all";
+            });
+
+            const activeBtn = document.getElementById(`exp-btn-${category}`);
+            if (activeBtn) {
+                activeBtn.className = "exp-filter-btn px-4 py-2 rounded-xl text-xs font-bold bg-brand-600 text-white shadow-md transition-all";
+            }
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 5. Toast Notification Handler
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3500);
+        }
+
+        // 6. Direct Form Submit to Mailto + FormSubmit Handler
+        function handleFormSubmit(event) {
+            const name = document.getElementById('form-name').value;
+            const contact = document.getElementById('form-contact').value;
+            const message = document.getElementById('form-message').value;
+
+            // Trigger mailto backup cleanly
+            const subject = encodeURIComponent(`Professional Inquiry from ${name}`);
+            const body = encodeURIComponent(`Name/Organization: ${name}\nContact: ${contact}\n\nMessage:\n${message}`);
+
+            showToast('Sending message directly to deriismunandar@gmail.com...');
+            
+            // Allow native FormSubmit process or mailto fallback
+            setTimeout(() => {
+                window.location.href = `mailto:deriismunandar@gmail.com?subject=${subject}&body=${body}`;
+            }, 800);
+        }
+    </script>
+</body>
+</html>
